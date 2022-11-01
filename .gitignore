@@ -1,0 +1,12 @@
+# Project exclude paths
+/live-common/live-common-core/target/
+/live-common/live-common-redis/target/
+/.idea/
+/live-api/live-api-system/target/
+/live-common/live-common-datascope/target/
+/live-common/live-common-datasource/target/
+/live-common/live-common-log/target/
+/live-common/live-common-security/target/
+/live-gateway/target/
+/live-modules/live-modules-system/target/
+/logs/
