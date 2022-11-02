@@ -19,6 +19,7 @@
         <module>live-common-log</module>
         <module>live-common-datasource</module>
         <module>live-common-datascope</module>
+        <module>live-common-swagger</module>
     </modules>
 
     <properties>

@@ -221,6 +221,13 @@
                 <version>${live.version}</version>
             </dependency>
 
+            <!-- Live Common Swagger -->
+            <dependency>
+                <groupId>com.live</groupId>
+                <artifactId>live-common-swagger</artifactId>
+                <version>${live.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

@@ -1,0 +1,9 @@
+com\live\common\swagger\config\SwaggerProperties.class
+com\live\common\swagger\config\SwaggerWebConfiguration.class
+com\live\common\swagger\config\SwaggerBeanPostProcessor.class
+com\live\common\swagger\config\SwaggerProperties$Authorization.class
+com\live\common\swagger\annotation\EnableCustomSwagger2.class
+com\live\common\swagger\config\SwaggerProperties$AuthorizationScope.class
+com\live\common\swagger\config\SwaggerProperties$Contact.class
+META-INF\spring-configuration-metadata.json
+com\live\common\swagger\config\SwaggerAutoConfiguration.class
