@@ -18,6 +18,8 @@ import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -46,12 +48,14 @@ public class ValidateCodeServiceImpl implements ValidateCodeService
     @Override
     public AjaxResult createCaptcha() throws IOException, CaptchaException
     {
-        AjaxResult ajax = AjaxResult.success();
+        //AjaxResult ajax = AjaxResult.success();
+
+        Map<String,Object> map = new HashMap<>();
         boolean captchaEnabled = captchaProperties.getEnabled();
-        ajax.put("captchaEnabled", captchaEnabled);
+        map.put("captchaEnabled", captchaEnabled);
         if (!captchaEnabled)
         {
-            return ajax;
+            return AjaxResult.success(map);
         }
 
         // 保存验证码信息
@@ -88,9 +92,9 @@ public class ValidateCodeServiceImpl implements ValidateCodeService
             return AjaxResult.error(e.getMessage());
         }
 
-        ajax.put("uuid", uuid);
-        ajax.put("img", Base64.encode(os.toByteArray()));
-        return ajax;
+        map.put("uuid", uuid);
+        map.put("img", Base64.encode(os.toByteArray()));
+        return AjaxResult.success(map);
     }
 
     /**
