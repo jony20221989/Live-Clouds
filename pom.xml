@@ -10,6 +10,7 @@
         <module>live-modules</module>
         <module>live-modules/live-modules-system</module>
         <module>live-gateway</module>
+        <module>live-auth</module>
     </modules>
     <name>live</name>
 
