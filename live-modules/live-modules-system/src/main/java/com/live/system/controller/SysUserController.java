@@ -18,6 +18,8 @@ import com.live.system.api.domain.SysRole;
 import com.live.system.api.domain.SysUser;
 import com.live.system.api.model.LoginUser;
 import com.live.system.service.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -37,6 +39,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户")
 public class SysUserController extends BaseController
 {
     @Autowired
@@ -62,6 +65,7 @@ public class SysUserController extends BaseController
      */
   //  @RequiresPermissions("system:user:list")
     @GetMapping("/list")
+    @ApiOperation("用户列表")
     public TableDataInfo list(SysUser user)
     {
         startPage();
