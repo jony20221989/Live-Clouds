@@ -67,11 +67,11 @@
         </dependency>
 
         <!-- Swagger UI -->
-        <dependency>
+<!--        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.fox.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- Live Common Swagger -->
         <dependency>

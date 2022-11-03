@@ -6,22 +6,17 @@
         <artifactId>Live-Cloud</artifactId>
         <groupId>com.live</groupId>
         <version>1.0</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>live-gateway</artifactId>
+    <artifactId>live-modules-file</artifactId>
 
     <description>
-        live-gateway网关模块
+        live-modules-file文件服务
     </description>
 
     <dependencies>
-
-        <!-- SpringCloud Gateway -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
 
         <!-- SpringCloud Alibaba Nacos -->
         <dependency>
@@ -35,46 +30,32 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
+        <!-- SpringBoot Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!-- SpringBoot Actuator -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-          </dependency>
-
-        <!-- SpringCloud Loadbalancer -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-loadbalancer</artifactId>
         </dependency>
 
-        <!--验证码 -->
-        <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
-        </dependency>
 
-        <!-- Live Common Redis-->
-        <dependency>
-            <groupId>com.live</groupId>
-            <artifactId>live-common-redis</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
 
-     <!--   &lt;!&ndash; Swagger &ndash;&gt;
+        <!-- Swagger UI -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.fox.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.fox.version}</version>
+
+        <!-- Live Common Swagger -->
+    <!--    <dependency>
+            <groupId>com.live</groupId>
+            <artifactId>live-common-swagger</artifactId>
         </dependency>-->
 
         <dependency>
@@ -82,10 +63,7 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
 
-
-
     </dependencies>
-
 
     <build>
         <finalName>${project.artifactId}</finalName>
