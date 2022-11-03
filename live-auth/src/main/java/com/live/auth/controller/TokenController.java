@@ -10,6 +10,8 @@ import com.live.common.security.auth.AuthUtil;
 import com.live.common.security.service.TokenService;
 import com.live.common.security.utils.SecurityUtils;
 import com.live.system.api.model.LoginUser;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author ruoyi
  */
 @RestController
+@Api("Token")
 public class TokenController
 {
     @Autowired
@@ -33,6 +36,7 @@ public class TokenController
     private SysLoginService sysLoginService;
 
     @PostMapping("login")
+    @ApiOperation("登录")
     public R<?> login(@RequestBody LoginBody form)
     {
         // 用户登录

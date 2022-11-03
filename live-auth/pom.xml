@@ -47,6 +47,38 @@
             <groupId>com.live</groupId>
             <artifactId>live-common-security</artifactId>
         </dependency>
+
+        <!-- Swagger UI -->
+      <!--  <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.fox.version}</version>
+        </dependency>-->
+
+        <!-- Live Common Swagger -->
+        <dependency>
+            <groupId>com.live</groupId>
+            <artifactId>live-common-swagger</artifactId>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.7.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

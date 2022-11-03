@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @EnableCustomConfig
-@EnableCustomSwagger2
+//@EnableCustomSwagger2
 @EnableRyFeignClients
 @SpringBootApplication
 public class LiveSystemApplication

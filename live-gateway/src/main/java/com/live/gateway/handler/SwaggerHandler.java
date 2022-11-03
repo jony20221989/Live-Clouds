@@ -12,7 +12,7 @@ import springfox.documentation.swagger.web.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/swagger-resources")
+//@RequestMapping("/swagger-resources")
 public class SwaggerHandler
 {
     @Autowired(required = false)
@@ -45,7 +45,7 @@ public class SwaggerHandler
     }
 
     @SuppressWarnings("rawtypes")
-    @GetMapping("")
+    @GetMapping("/swagger-resources")
     public Mono<ResponseEntity> swaggerResources()
     {
         return Mono.just((new ResponseEntity<>(swaggerResources.get(), HttpStatus.OK)));

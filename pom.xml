@@ -11,6 +11,7 @@
         <module>live-modules/live-modules-system</module>
         <module>live-gateway</module>
         <module>live-auth</module>
+        <module>live-modules/live-modules-file</module>
     </modules>
     <name>live</name>
 
@@ -30,6 +31,7 @@
         <spring-boot.mybatis>2.2.2</spring-boot.mybatis>
         <swagger.fox.version>3.0.0</swagger.fox.version>
         <swagger.core.version>1.6.2</swagger.core.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <tobato.version>1.27.2</tobato.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <pagehelper.boot.version>1.4.5</pagehelper.boot.version>
@@ -112,11 +114,11 @@
                 <version>${commons.io.version}</version>
             </dependency>
 
-            <dependency>
+          <!--  <dependency>
                 <groupId>io.projectreactor</groupId>
                 <artifactId>reactor-core</artifactId>
                 <version>3.4.22</version>
-            </dependency>
+            </dependency>-->
 
             <!-- Druid -->
             <dependency>
@@ -228,6 +230,32 @@
                 <version>${live.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- Swagger2 knife4j bom方式引入 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-dependencies</artifactId>
+                <version>${knife4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -238,11 +266,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <version>1.32</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

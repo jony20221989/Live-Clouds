@@ -1,3 +1,4 @@
-com.live.common.swagger.config.SwaggerAutoConfiguration
-com.live.common.swagger.config.SwaggerWebConfiguration
+#com.live.common.swagger.config.SwaggerAutoConfiguration
+#com.live.common.swagger.config.SwaggerWebConfiguration
 com.live.common.swagger.config.SwaggerBeanPostProcessor
+com.live.common.swagger.config.SwaggerConfiguration
