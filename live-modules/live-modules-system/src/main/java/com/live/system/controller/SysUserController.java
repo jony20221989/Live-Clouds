@@ -1,5 +1,6 @@
 package com.live.system.controller;
 
+import com.alibaba.nacos.shaded.org.checkerframework.checker.units.qual.A;
 import com.live.common.core.constant.UserConstants;
 import com.live.common.core.domain.R;
 import com.live.common.core.utils.StringUtils;
@@ -28,7 +29,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,7 +42,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/user")
-@Api(tags = "用户")
+@Api(tags = "系统用户")
 public class SysUserController extends BaseController
 {
     @Autowired
@@ -150,6 +153,7 @@ public class SysUserController extends BaseController
      * @return 用户信息
      */
     @GetMapping("getInfo")
+    @ApiOperation("获取用户信息")
     public AjaxResult getInfo()
     {
         SysUser user = userService.selectUserById(SecurityUtils.getUserId());
@@ -172,18 +176,19 @@ public class SysUserController extends BaseController
     public AjaxResult getInfo(@PathVariable(value = "userId", required = false) Long userId)
     {
         userService.checkUserDataScope(userId);
-        AjaxResult ajax = AjaxResult.success();
+        //AjaxResult ajax = AjaxResult.success();
+        Map<String,Object> map = new HashMap<>();
         List<SysRole> roles = roleService.selectRoleAll();
-        ajax.put("roles", SysUser.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
-        ajax.put("posts", postService.selectPostAll());
+        map.put("roles", SysUser.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
+        map.put("posts", postService.selectPostAll());
         if (StringUtils.isNotNull(userId))
         {
             SysUser sysUser = userService.selectUserById(userId);
-            ajax.put(AjaxResult.DATA_TAG, sysUser);
-            ajax.put("postIds", postService.selectPostListByUserId(userId));
-            ajax.put("roleIds", sysUser.getRoles().stream().map(SysRole::getRoleId).collect(Collectors.toList()));
+            map.put(AjaxResult.DATA_TAG, sysUser);
+            map.put("postIds", postService.selectPostListByUserId(userId));
+            map.put("roleIds", sysUser.getRoles().stream().map(SysRole::getRoleId).collect(Collectors.toList()));
         }
-        return ajax;
+        return AjaxResult.success(map);
     }
 
     /**

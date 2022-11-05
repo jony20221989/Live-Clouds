@@ -66,12 +66,6 @@
             <artifactId>live-common-log</artifactId>
         </dependency>
 
-        <!-- Swagger UI -->
-<!--        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.fox.version}</version>
-        </dependency>-->
 
         <!-- Live Common Swagger -->
         <dependency>

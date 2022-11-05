@@ -10,7 +10,7 @@ import com.live.common.security.auth.AuthUtil;
 import com.live.common.security.service.TokenService;
 import com.live.common.security.utils.SecurityUtils;
 import com.live.system.api.model.LoginUser;
-import io.swagger.annotations.Api;
+
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,11 +22,11 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * token 控制
- * 
+ *
  * @author ruoyi
  */
 @RestController
-@Api("Token")
+
 public class TokenController
 {
     @Autowired

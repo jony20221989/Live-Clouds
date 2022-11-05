@@ -7,6 +7,7 @@ import com.live.common.core.annotation.Excel.Type;
 import com.live.common.core.annotation.Excels;
 import com.live.common.core.web.domain.BaseEntity;
 import com.live.common.core.xss.Xss;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -57,6 +58,7 @@ public class SysUser extends BaseEntity
     /** 手机号码 */
     @Excel(name = "手机号码")
     @Size(min = 0, max = 11, message = "手机号码长度不能超过11个字符")
+
     private String phonenumber;
 
     /** 用户性别 */

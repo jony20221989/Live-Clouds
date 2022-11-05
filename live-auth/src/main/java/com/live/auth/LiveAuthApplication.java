@@ -1,22 +1,19 @@
 package com.live.auth;
 
-import com.live.common.security.annotation.EnableCustomConfig;
+
 import com.live.common.security.annotation.EnableRyFeignClients;
-import com.live.common.swagger.annotation.EnableCustomSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
 
 /**
  * 认证授权中心
  * 
  * @author ruoyi
  */
-//@EnableRyFeignClients
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
-//@EnableCustomConfig
-@EnableCustomSwagger2
 @EnableRyFeignClients
+//@EnableCustomConfig
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class LiveAuthApplication
 {

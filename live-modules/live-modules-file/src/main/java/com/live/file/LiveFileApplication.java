@@ -1,17 +1,16 @@
 package com.live.file;
 
 //import com.live.common.swagger.annotation.EnableCustomSwagger2;
-import com.live.common.swagger.annotation.EnableCustomSwagger2;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * 文件服务
  * 
  * @author ruoyi
  */
-@EnableCustomSwagger2
+//@EnableCustomSwagger2
 @SpringBootApplication
 public class LiveFileApplication
 {

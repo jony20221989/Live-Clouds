@@ -28,8 +28,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-
-
         <!-- SpringBoot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -48,12 +46,6 @@
             <artifactId>live-common-security</artifactId>
         </dependency>
 
-        <!-- Swagger UI -->
-      <!--  <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.fox.version}</version>
-        </dependency>-->
 
         <!-- Live Common Swagger -->
         <dependency>

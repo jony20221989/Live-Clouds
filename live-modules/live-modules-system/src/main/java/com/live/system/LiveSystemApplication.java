@@ -4,7 +4,6 @@ package com.live.system;
 
 import com.live.common.security.annotation.EnableCustomConfig;
 import com.live.common.security.annotation.EnableRyFeignClients;
-import com.live.common.swagger.annotation.EnableCustomSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

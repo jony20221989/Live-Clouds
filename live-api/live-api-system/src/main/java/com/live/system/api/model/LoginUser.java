@@ -2,6 +2,7 @@ package com.live.system.api.model;
 
 
 import com.live.system.api.domain.SysUser;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -30,6 +31,7 @@ public class LoginUser implements Serializable
     /**
      * 用户名
      */
+    @ApiModelProperty("用户姓名")
     private String username;
 
     /**

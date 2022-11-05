@@ -1,10 +1,12 @@
 package com.live.gateway.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.config.GatewayProperties;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.support.NameUtils;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.config.ResourceHandlerRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
@@ -20,6 +22,8 @@ import java.util.List;
  * @author ruoyi
  */
 @Component
+@Primary
+@Slf4j
 public class SwaggerProvider implements SwaggerResourcesProvider, WebFluxConfigurer
 {
     /**
@@ -50,19 +54,19 @@ public class SwaggerProvider implements SwaggerResourcesProvider, WebFluxConfigu
         // 获取网关中配置的route
         routeLocator.getRoutes().subscribe(route -> routes.add(route.getId()));
         gatewayProperties.getRoutes().stream()
-                .filter(routeDefinition -> routes
-                        .contains(routeDefinition.getId()))
+                .filter(routeDefinition -> routes.contains(routeDefinition.getId()))
                 .forEach(routeDefinition -> routeDefinition.getPredicates().stream()
                         .filter(predicateDefinition -> "Path".equalsIgnoreCase(predicateDefinition.getName()))
-                        .filter(predicateDefinition -> !"live-auth".equalsIgnoreCase(routeDefinition.getId()))
-                        .forEach(predicateDefinition -> resourceList
-                                .add(swaggerResource(routeDefinition.getId(), predicateDefinition.getArgs()
-                                        .get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("/**", SWAGGER2URL)))));
+                       // .filter(predicateDefinition -> !"live-auth".equalsIgnoreCase(routeDefinition.getId()))
+                        .forEach(predicateDefinition -> resourceList.add(swaggerResource(routeDefinition.getId(),
+                                predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0")
+                                        .replace("/**", SWAGGER2URL)))));
         return resourceList;
     }
 
     private SwaggerResource swaggerResource(String name, String location)
     {
+        log.info("name:{},location:{}",name,location);
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
         swaggerResource.setLocation(location);
@@ -70,11 +74,11 @@ public class SwaggerProvider implements SwaggerResourcesProvider, WebFluxConfigu
         return swaggerResource;
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry)
-    {
-        /** swagger-ui 地址 */
-        registry.addResourceHandler("/swagger-ui/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry)
+//    {
+//        /** swagger-ui 地址 */
+//        registry.addResourceHandler("/swagger-ui/**")
+//                .addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/");
+//    }
 }

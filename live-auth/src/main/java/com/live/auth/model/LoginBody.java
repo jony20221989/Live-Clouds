@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * 用户登录对象
- * 
+ *
  * @author ruoyi
  */
 @Getter
